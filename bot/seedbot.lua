@@ -230,34 +230,19 @@ function create_config( )
     "leave_ban",
 	"supergroup",
 	"whitelist",
-	"msg_checks"
+	"msg_checks",
+	"lock_fwd",
+	"azan",
+	"rmsg",
+	"weather",
+	"translate",
+	"fal"
     },
     sudo_users = {110626080,103649648,111020322,0,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v4
-An advanced administration bot based on TG-CLI written in Lua
-
-https://github.com/SEEDTEAM/TeleSeed
-
-Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@POTUS [Developer]
-@seyedan25 [Manager]
-@aRandomStranger [Admin]
-
-Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
-
-Our channels
-@teleseedch [English]
-@iranseed [persian]
-
-Our website 
-http://teleseed.seedteam.org/
+    about_text = [[
+	anti spam for supergroup ...
+	http://permag.ir
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -343,274 +328,183 @@ This command will send text to [group_id]
 *Only admins and sudo can use res, setowner, commands
 ]],
     help_text = [[
-Commands list :
+ليست دستورات:
+------------------------
+#help : نمايش راهنماي ربات
+------------------------
+#kick : اخراج کاربران
+------------------------
+#ban : بلاک کردن کاربر
+------------------------
+#unban : خارح کردن کاربر از بلاک
+------------------------
+#who : ليست اعضا
+------------------------
+#modlist : لیست ناظرین
+------------------------
+#promote : کاربر ناظر گروه میشود
+طريقه استفاده : #promote @iduser
+------------------------
+#demote : کاربر از لیست ناظرین خط میخورد
+طريقه استفاده : #demote @iduser
+------------------------
+#setrules <text> : ثبت قوانين گروه 
+طريقه استفاده /setrules قوانين خود را وارد کنيد
+------------------------
+#rules : نمايش قوانين گروه
+------------------------
+#id : نمايش اطلاعات کاربر
+------------------------
+#lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict|fwd|]
+قفل کردن تنظيمات گروه
+/lock[|لينک |سيل مطالب|اسپم|عربي|اعضا|فارسي|استيکر|اطلاعات تماس|ربات سختگير|فوروارد]
+strict = اگر اين گزينه قفل باشد ربات سختگير ميشود و کاربر خطا کار را سريع پاک ميکند بدون اخطار
+flood = اگر اين گزينه فعال باشد کاربراني که در يک ثانيه بالاي ده پيام را ارسال کنند خودکار حذف ميشوند 
+------------------------
+#unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict|fwd|]
+باز کردن قفل تنظيمات - همان موارد بالا
+------------------------
+#mute [all|audio|gifs|photo|video]
+غير فعال کردن ارسال موارد بالا توسط کاربران، بطور مثال شما ميتوانيد ارسال فيلم را غيرفعال کنيد
+مثال : #mute video 
+------------------------
+#unmute [all|audio|gifs|photo|video]
+فرض کنيد توسط دستور بالا فيلم را قفل کرده ايد و حالا قفل را باز ميکنيد
+مثال : #unmute video
+------------------------
+#settings : نمايش تنظيمات گروه
+------------------------
+#muteslist : نمايش ليست موارد قفل شده- صدا عکس و غيره
+------------------------
+#muteuser [username] : اگر يک کاربر را اينگونه خفه کنيد نميتواند هيچ پيامي ارسال کند
+مثال : /muteuser @iduser
+------------------------
+#mutelist : ليست کاربران خفه شده
+------------------------
+#newlink : ساخت لينک جديد براي گروه
+------------------------
+#link : نمايش لينک گروه
+------------------------
+#owner : نمايش ايدي مديراصلي
+------------------------
+#setowner [id] : اضافه کردن يک مدير 
+------------------------
+#setflood [value] = توسط اين گزينه ميتوانيد مشخص کنيد يک کاربر تا چه تعداد مطلب بصورت رگباري ميتواند ارسال کند
+مثال = #setflood 10 
+اگر قفل flood روشن باشد و کاربر بيشتر از ده عدد مطلب به يکباره ارسال کند حذف ميشود
+------------------------
+#stats
+آمار و اطلاعات گروه
+------------------------
+#clean [modlist|rules] :
+حذف کردن متن قوانين يا ليست مديران 
+------------------------
+#res [username] : با وارد کردن يوزر يک کاربر ميتوانيد آيدي آن کاربر را بدست آورديد
+مثال /res @username
+------------------------
+#log : گزارش کار هاي انجام شده ، اين دستور کل اعمال مدير را در يک فايل نوت پد به شما نشان مي دهد
+------------------------
+#banlist : نمايش افراد بن شده
+------------------------
 
-!kick [username|id]
-You can also do it by reply
-
-!ban [ username|id]
-You can also do it by reply
-
-!unban [id]
-You can also do it by reply
-
-!who
-Members list
-
-!modlist
-Moderators list
-
-!promote [username]
-Promote someone
-
-!demote [username]
-Demote someone
-
-!kickme
-Will kick user
-
-!about
-Group description
-
-!setphoto
-Set and locks group photo
-
-!setname [name]
-Set group name
-
-!rules
-Group rules
-
-!id
-return group id or user id
-
-!help
-Returns help text
-
-!lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-Lock group settings
-*rtl: Kick user if Right To Left Char. is in name*
-
-!unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-Unlock group settings
-*rtl: Kick user if Right To Left Char. is in name*
-
-!mute [all|audio|gifs|photo|video]
-mute group message types
-*If "muted" message type: user is kicked if message type is posted 
-
-!unmute [all|audio|gifs|photo|video]
-Unmute group message types
-*If "unmuted" message type: user is not kicked if message type is posted 
-
-!set rules <text>
-Set <text> as rules
-
-!set about <text>
-Set <text> as about
-
-!settings
-Returns group settings
-
-!muteslist
-Returns mutes for chat
-
-!muteuser [username]
-Mute a user in chat
-*user is kicked if they talk
-*only owners can mute | mods and owners can unmute
-
-!mutelist
-Returns list of muted users in chat
-
-!newlink
-create/revoke your group link
-
-!link
-returns group link
-
-!owner
-returns group owner id
-
-!setowner [id]
-Will set id as owner
-
-!setflood [value]
-Set [value] as flood sensitivity
-
-!stats
-Simple message statistics
-
-!save [value] <text>
-Save <text> as [value]
-
-!get [value]
-Returns text of [value]
-
-!clean [modlist|rules|about]
-Will clear [modlist|rules|about] and set it to nil
-
-!res [username]
-returns user id
-"!res @username"
-
-!log
-Returns group logs
-
-!banlist
-will return group ban list
-
-**You can use "#", "!", or "/" to begin all commands
-
-
-*Only owner and mods can add bots in group
-
-
-*Only moderators and owner can use kick,ban,unban,newlink,link,setphoto,setname,lock,unlock,set rules,set about and settings commands
-
-*Only owner can use res,setowner,promote,demote and log commands
+راهنماي ربات ضد اسپم تلگرام 
+سورس مجله فارسي پرمگ 
+@permagChannel
 
 ]],
 	help_text_super =[[
-SuperGroup Commands:
+نمايش دستورات سوپر گروه
 
-!info
-Displays general info about the SuperGroup
+/info :  پروفايل کاربر
+------------------------
+/admins : نمايش ليست مديران گروه
+------------------------
+/owner : مدير اصلي ربات
+------------------------
+/modlist : لیست ناظرین
+------------------------
+/bots : ليست ربات هاي گروه
+------------------------
+/who :ليست همه کابران گروه به همراه ايدي
+------------------------
+/ban : ليست کاربران بن شده
+------------------------
+/id : نمايش ايدي شخص ، با ريپي کردن پيام يک شخص و ارسال اين کد ايدي آن شخص براي شما نمايش داده ميشود
+------------------------
+/promote : کاربر مورد نظر ناظر ربات میشود
+mesal : /promote @iduser
+------------------------
+/demote : کاربر از لیست ناظرین خط میخورد
+mesal : /demote @iduser
+------------------------
+/setrules : تعيين کردن قوانين براي گروه
+mesal : /setrules قوانين خود را بنويسيد
+------------------------
+/rules : نمايش قوانين گروه
+------------------------
+/link : نمايش لينک گروه
+------------------------
+/lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict|fwd|]
+قفل کردن تنظيمات گروه
+/lock[|لينک |سيل مطالب|اسپم|عربي|اعضا|فارسي|استيکر|اطلاعات تماس|ربات سختگير|فوروارد]
+strict = اگر اين گزينه قفل باشد ربات سختگير ميشود و کاربر خطا کار را سريع پاک ميکند بدون اخطار
+flood = اگر اين گزينه فعال باشد کاربراني که در يک ثانيه بالاي ده پيام را ارسال کنند خودکار حذف ميشوند 
+------------------------
+/unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict|fwd|]
+باز کردن قفل تنظيمات - همان موارد بالا
+------------------------
+/mute [audio|gifs|photo|video|] :
+غير فعال کردن ارسال موارد بالا توسط کاربران، بطور مثال شما ميتوانيد ارسال فيلم را غيرفعال کنيد
+mesal : /mute video 
+------------------------
+/unmute [audio|gifs|photo|video|] :
+فرض کنيد توسط دستور بالا فيلم را قفل کرده ايد و حالا قفل را باز ميکنيد
+mesal: /unmute video
+------------------------
+/setflood [value] : توسط اين گزينه ميتوانيد مشخص کنيد يک کاربر تا چه تعداد مطلب بصورت رگباري ميتواند ارسال کند
+mesal = /setflood 10 
+اگر قفل flood روشن باشد و کاربر بيشتر از ده عدد مطلب به يکباره ارسال کند حذف ميشود
+------------------------
+/settings : نمايش تنظيمات گروه
+------------------------
+/muteslist : نمايش ليست موارد غير فعال شده مانند عکس و ويديو
+------------------------
+/muteuser : خفه کردن يک کاربر ، جلوگيري از ارسال پيام توسط آن کاربر
+mesal : /muteuser @user  ya  /muteuser 16516512 
+با ارسال مجدد همين دستور قفل کاربر برداشته ميشود
+------------------------
+/mutelist : نمايش کاربران خفه شده 
+------------------------
+/banlist : نمايش کاربران بن شده
+------------------------
+/clean [rules|modlist|mutelist]
+پاک کردن موارد بالا
+mesal /clean rules  اين دستور قوانين ثبت شده را پاک ميکند
 
-!admins
-Returns SuperGroup admins list
-
-!owner
-Returns group owner
-
-!modlist
-Returns Moderators list
-
-!bots
-Lists bots in SuperGroup
-
-!who
-Lists all users in SuperGroup
-
-!block
-Kicks a user from SuperGroup
-*Adds user to blocked list*
-
-!ban
-Bans user from the SuperGroup
-
-!unban
-Unbans user from the SuperGroup
-
-!id
-Return SuperGroup ID or user id
-*For userID's: !id @username or reply !id*
-
-!id from
-Get ID of user message is forwarded from
-
-!kickme
-Kicks user from SuperGroup
-*Must be unblocked by owner or use join by pm to return*
-
-!setowner
-Sets the SuperGroup owner
-
-!promote [username|id]
-Promote a SuperGroup moderator
-
-!demote [username|id]
-Demote a SuperGroup moderator
-
-!setname
-Sets the chat name
-
-!setphoto
-Sets the chat photo
-
-!setrules
-Sets the chat rules
-
-!setabout
-Sets the about section in chat info(members list)
-
-!save [value] <text>
-Sets extra info for chat
-
-!get [value]
-Retrieves extra info for chat by value
-
-!newlink
-Generates a new group link
-
-!link
-Retireives the group link
-
-!rules
-Retrieves the chat rules
-
-!lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-Lock group settings
-*rtl: Delete msg if Right To Left Char. is in name*
-*strict: enable strict settings enforcement (violating user will be kicked)*
-
-!unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-Unlock group settings
-*rtl: Delete msg if Right To Left Char. is in name*
-*strict: disable strict settings enforcement (violating user will not be kicked)*
-
-!mute [all|audio|gifs|photo|video|service]
-mute group message types
-*A "muted" message type is auto-deleted if posted
-
-!unmute [all|audio|gifs|photo|video|service]
-Unmute group message types
-*A "unmuted" message type is not auto-deleted if posted
-
-!setflood [value]
-Set [value] as flood sensitivity
-
-!settings
-Returns chat settings
-
-!muteslist
-Returns mutes for chat
-
-!muteuser [username]
-Mute a user in chat
-*If a muted user posts a message, the message is deleted automaically
-*only owners can mute | mods and owners can unmute
-
-!mutelist
-Returns list of muted users in chat
-
-!banlist
-Returns SuperGroup ban list
-
-!clean [rules|about|modlist|mutelist]
-
-!del
-Deletes a message by reply
-
-!public [yes|no]
-Set chat visibility in pm !chats or !chatlist commands
-
-!res [username]
-Returns users name and id by username
+------------------------
+/res : پيام يک کاربر را ريپلاي کنيد و اين دستور را ارسال کنيد تا ايدي و يوزر کاربر براي شما نمايان شود
+------------------------
+/rmsg : پاک کردن گروهي پيام ها ، بحاي عدد 100 هر عددي ميتوانيد بگذاريد
+mesal : #rmsg 100
+------------------------
+/hava : برای نمایش آب و هوای یک شهر 
+mesal : /hava tehran
+------------------------
+/tr :  برای ترجمه فارسی به انگلیسی
+mesal : /tr سلام
+------------------------
+/fal : برای گرفتن فال حافظ 
+------------------------
+برای نمایش تایم اذان به این گونه عمل کنید
+اذان شهرموردنظر
+مثال : اذان تهران
+------------------------
 
 
-!log
-Returns group logs
-*Search for kick reasons using [#RTL|#spam|#lockmember]
-
-**You can use "#", "!", or "/" to begin all commands
-
-*Only owner can add members to SuperGroup
-(use invite link to invite)
-
-*Only moderators and owner can use block, ban, unban, newlink, link, setphoto, setname, lock, unlock, setrules, setabout and settings commands
-
-*Only owner can use res, setowner, promote, demote, and log commands
+راهنماي ربات ضد اسپم تلگرام 
+کاري از مجله فارسي پرمگ
+  
+@permagChannel
 
 ]],
   }
