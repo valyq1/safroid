@@ -12,11 +12,24 @@
 sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev
 
 # Let's install the bot.
+sudo apt-get update
+
+sudo apt-get upgrade
+
+sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev
+
+# Let's install the bot.
+
 cd $HOME
+
 git clone https://github.com/permag-ir/permag.ir.git
-cd permag.ir
+
+cd permag_bot
+
 chmod +x launch.sh
+
 ./launch.sh install
+
 ./launch.sh # Enter a phone number & confirmation code.
 ```
 ### One command
@@ -28,30 +41,11 @@ sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgr
 
 * * *
 
-### Realm configuration
-
-After you run the bot for first time, send it `!id`. Get your ID and stop the bot.
-
-Open ./data/config.lua and add your ID to the "sudo_users" section in the following format:
-```
   sudo_users = {
-  
     YourID
   }
 ```
 Then restart the bot.
-
-Create a realm using the `!createrealm` command.
-
-* * *
-
-**Creating a LOG SuperGroup**
-	-For GBan Log
-
-	1. Create a group using the `!creategroup` command.
-	2. Add two members or bots, then use `#Tosuper` to convert to a SuperSroup.
-	3. Use the `#addlog` command and your ***LOG SuperGroup(s)*** will be set.
-	Note: you can set multiple Log SuperGroups
 
 * * *
 
