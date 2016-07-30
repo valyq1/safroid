@@ -43,12 +43,13 @@ sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgr
 ```
 Then restart the bot.
 
-* * *
+
+
 
 # Support and development
 
 https://telegram.me/permagChannel
 
 http://permag.ir
-* * *
+
 
