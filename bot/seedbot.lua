@@ -236,7 +236,8 @@ function create_config( )
 	"rmsg",
 	"weather",
 	"translate",
-	"fal"
+	"fal",
+	"wlc"
     },
     sudo_users = {95562048,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
