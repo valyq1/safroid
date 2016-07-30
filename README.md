@@ -36,7 +36,7 @@ sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgr
 ```
 
 * * *
-
+```sh
   sudo_users = {
     YourID
   }
@@ -44,7 +44,7 @@ sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgr
 Then restart the bot.
 
 
-
+* * *
 
 ### Support and development
 
