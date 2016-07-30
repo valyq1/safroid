@@ -46,7 +46,7 @@ Then restart the bot.
 
 
 
-# Support and development
+### Support and development
 
 https://telegram.me/permagChannel
 
