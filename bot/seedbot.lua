@@ -238,7 +238,7 @@ function create_config( )
 	"translate",
 	"fal"
     },
-    sudo_users = {110626080,103649648,111020322,0,tonumber(our_id)},--Sudo users
+    sudo_users = {95562048,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
 	anti spam for supergroup ...
