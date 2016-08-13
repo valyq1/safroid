@@ -23,11 +23,11 @@ local function run(msg, matches)
             
                     local hash = 'mate:'..msg.to.id
                     redis:set(hash, true)
-                    return ""
+                    return "قفل فروارد فعال شد"
   elseif is_momod(msg) and matches[1] == 'unlock' then
                     local hash = 'mate:'..msg.to.id
                     redis:del(hash)
-                    return ""
+                    return "قفل فروارد غیر فعال شد"
 end
 
 end
