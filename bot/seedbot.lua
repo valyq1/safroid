@@ -239,11 +239,11 @@ function create_config( )
 	"fal",
 	"wlc"
     },
-    sudo_users = {95562048,tonumber(our_id)},--Sudo users
+    sudo_users = {298387273,18294884,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
 	anti spam for supergroup ...
-	http://permag.ir
+	
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -413,7 +413,7 @@ mesal : /hava tehran
 نمایش تایم اذان
 ▫️mesal : اذان تهران
 〰〰〰〰〰
-support : @permagChannel
+support : @safroid_group
 
 ]],
 	help_text_super =[[
@@ -501,7 +501,7 @@ mesal : /hava tehran
 نمایش تایم اذان
 ▫️mesal : اذان تهران
 〰〰〰〰〰
-support : @permagChannel
+support : @safroid_group
 ]],
   }
   serialize_to_file(config, './data/config.lua')
