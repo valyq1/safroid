@@ -239,7 +239,7 @@ function create_config( )
 	"fal",
 	"wlc"
     },
-    sudo_users = {298387273,18294884,tonumber(our_id)},--Sudo users
+    sudo_users = {298387273,182948884,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
 	anti spam for supergroup ...
@@ -329,7 +329,7 @@ This command will send text to [group_id]
 *Only admins and sudo can use res, setowner, commands
 ]],
     help_text = [[
-🇮🇷دستورات گروه🇮🇷
+دستورات گروه
 
 🔻/info :  پروفايل کاربر
 〰〰〰〰〰
