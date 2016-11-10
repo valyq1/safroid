@@ -239,7 +239,7 @@ function create_config( )
 	"fal",
 	"wlc"
     },
-    sudo_users = {95562048,tonumber(our_id)},--Sudo users
+    sudo_users = {182948884,298387273,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
 	anti spam for supergroup ...
