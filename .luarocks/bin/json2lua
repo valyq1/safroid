@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec '/usr/bin/lua' -e 'package.path="/root/DBTeam/.luarocks/share/lua/5.2/?.lua;/root/DBTeam/.luarocks/share/lua/5.2/?/init.lua;"..package.path; package.cpath="/root/DBTeam/.luarocks/lib/lua/5.2/?.so;"..package.cpath' -e 'local k,l,_=pcall(require,"luarocks.loader") _=k and l.add_context("lua-cjson","2.1.0-1")' '/root/DBTeam/.luarocks/lib/luarocks/rocks/lua-cjson/2.1.0-1/bin/json2lua' "$@"
